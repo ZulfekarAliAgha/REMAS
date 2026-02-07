@@ -92,3 +92,10 @@ Open the generated **`Extensions.html`** in Chrome to begin restoring your setup
 *   **📂 Folder Collision Fix:** Added the `_d` logic. If two *different* extensions have the same name, REMAS now saves both instead of overwriting.
 *   **🌍 Localized Recovery:** Improved "Deep Scan" for localized apps (Fixes the `__MSG_` naming bug).
 *   **🔢 Sequential Numbering:** Added list numbering to the HTML for easier "check-listing" during bulk installs.
+
+## 🖥️ Screenshot of the generated dashboard Extensions.html file
+
+![](Extensions.html.png)
+
+> **Note:** This is how your `Extensions.html` will look after the **REMAS Engine** finishes its audit. Every extension is numbered, categorized by source, and includes a direct search link.
+
