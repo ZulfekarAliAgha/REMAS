@@ -29,9 +29,14 @@ If you have 100+ extensions, you know the pain of "Profile Drift."
 ## 🚀 Quick Start Guide
 
 ### 1. 📂 Preparation
-*   Place your source folders on your Desktop.
-*   The script looks for **Extensions_1** (or simply **Extensions**) and **Extensions_2**.
-*   *Note: If you only have one source, just ensure it is named "Extensions" or "Extensions_1".*
+*   **Single Source:** Place your backup folder on your desktop and rename it to **Extensions_1**. Ensure the folder contain the raw ID folders (e.g., `pkedc...`, `ghbko...`) directly.
+*   **Dual-Source Merge:** If you want to merge two different profiles (e.g., your **Work PC** and **Home PC**), similarly place the second backup folder and rename it to **Extensions_2**.
+*   **Intelligent Fallback:** REMAS features an automated "All-or-Nothing" logic. If **Extensions_1** is not detected on your desktop, the engine assumes you are auditing your current machine and will skip the desktop search entirely. It will instead fallback to your live Chrome system directory: 
+    `...\AppData\Local\Google\Chrome\User Data\Default\Extensions`
+
+**Note:** In the generated `Extensions.html` dashboard, **Source 1** will represent your primary desktop backup (if found) or your **Default Chrome Profile** (in Fallback Mode).
+
+> **⚠️ POWER-USER TIP:** If you are auditing your **Current Chrome Extensions** (Live Default Folder), please **Close Chrome completely** before running the engine. This prevents "File-In-Use" errors and ensures the audit can access your live extension manifest data without being blocked by the browser.
 
 ### 2. ⚙️ Configuration
 Open the **REMAS script** in **Notepad** (or any text editor) and change the `$user` variable to match your Windows user folder name. 
@@ -73,7 +78,9 @@ Using the **Registry Fix** ensures the policy allows the extension to exist, whi
 
 ### 5. 📥 Extensions Installation
 Open the generated **`Extensions.html`** in Chrome to begin restoring your setup:
-*   **Option A (Web Store):** Click the **Search in Store** button to find and install the official, latest version from Google.
+*   **Option A (Direct Store Access):** 
+    *   Click **View in Store** to jump directly to the official extension page using its unique ID. 
+    *   If the ID link is dead (404), click **Search in Store** to find the latest version or a replacement by name.
 *   **Option B (Sideloading):** For removed or legacy extensions, click the **Extension Name** to open its local folder, then **Drag & Drop** that folder into `chrome://extensions` (ensure **Developer Mode** is ON).
 
 > **💡 POWER-USER TIP:** If your browser security blocks the folder from opening automatically when you click the name, don't sweat it! Just manually open the **Chrome Extensions - REMAS** folder on your desktop. From there, you can manually drag and load all your unavailable or older Manifest V2 extensions to bypass Google's restrictions like a boss.
@@ -93,9 +100,17 @@ Open the generated **`Extensions.html`** in Chrome to begin restoring your setup
 *   **🌍 Localized Recovery:** Improved "Deep Scan" for localized apps (Fixes the `__MSG_` naming bug).
 *   **🔢 Sequential Numbering:** Added list numbering to the HTML for easier "check-listing" during bulk installs.
 
-## 🖥️ Screenshot of the generated dashboard Extensions.html file
+---
 
-![](Extensions.html.png)
+## 📝 Release Notes - v0.80 (Beta)
+> *"The Precision Audit Update"*
 
-> **Note:** This is how your `Extensions.html` will look after the **REMAS Engine** finishes its audit. Every extension is numbered, categorized by source, and includes a direct search link.
+*   **🧠 Intelligent Folder Logic:** New "All-or-Nothing" fallback system. If `Extensions_1` is missing on Desktop, the engine skips the desktop search to prevent errors and targets your live **Chrome System Path**.
+*   **📂 Single-Source Mode:** The engine now intelligently toggles to a dedicated "Single-Source" mode during live fallbacks. This ensures a clean audit of your current active profile.
+*   **🎯 View in Store Button:** Added a direct **ID-based** link next to every extension. Users can now jump directly to the specific official app page on the [Chrome Web Store](https://chrome.google.com).
+*   **⚔️ Dual-Action Strategy:** Every entry now features both **View** and **Search** buttons. This "Dual-Store" approach ensures that even if an Extension ID is nuked (404), the name-based search fallback will find the replacement.
+*   **🚀 Header Branding:** Updated the dashboard with a **Rocket icon** and version badge. Added a direct, styled link to the official [GitHub/REMAS](https://github.com/ZulfekarAliAgha/REMAS) repository.
+*   **👤 Audit Highlighting:** The header now explicitly displays the **Windows Username** and **Total Extension Count** in **Bold Red** to provide instant visual confirmation of the audit scope.
+
+---
 
