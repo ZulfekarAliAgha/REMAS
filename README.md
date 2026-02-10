@@ -114,3 +114,10 @@ Open the generated **`Extensions.html`** in Chrome to begin restoring your setup
 
 ---
 
+## 🖥️ Screenshot of the generated dashboard Extensions.html file
+
+![](Extensions.html.png)
+
+> **Note:** This is how your `Extensions.html` will look after the **REMAS Engine** finishes its audit. Every extension is numbered, categorized by source, and includes a direct search link.
+
+
